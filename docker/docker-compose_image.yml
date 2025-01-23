@@ -7,7 +7,7 @@ services:
       - "./.env:/app/server/.env"
       - "../server/endpoints:/app/server/endpoints"
       - "../frontend/dist:/app/server/public"
-      - "../server/storage:/app/server/storage"
+      - "./storage:/app/server/storage"
       - "../collector/hotdir/:/app/collector/hotdir"
       - "../collector/outputs/:/app/collector/outputs"
     user: "${UID:-1000}:${GID:-1000}"

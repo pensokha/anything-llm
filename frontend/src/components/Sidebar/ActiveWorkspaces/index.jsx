@@ -90,7 +90,7 @@ export default function ActiveWorkspaces() {
                       </p>
                     </div>
                   </div>
-                  {user?.role !== "default" && (
+                  
                     <div
                       className={`flex items-center gap-x-[2px] transition-opacity duration-200 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
                     >
@@ -108,6 +108,7 @@ export default function ActiveWorkspaces() {
                           weight="bold"
                         />
                       </button>
+                      {user?.role !== "default" && (
                       <Link
                         to={
                           isInWorkspaceSettings
@@ -129,8 +130,9 @@ export default function ActiveWorkspaces() {
                           className="h-[20px] w-[20px]"
                         />
                       </Link>
+                      )}
                     </div>
-                  )}
+                  
                 </div>
               </a>
             </div>

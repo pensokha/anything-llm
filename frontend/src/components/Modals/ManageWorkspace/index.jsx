@@ -147,9 +147,9 @@ export function useManageWorkspaceModal() {
   const [showing, setShowing] = useState(false);
 
   function showModal() {
-    if (user?.role !== "default") {
+    
       setShowing(true);
-    }
+    
   }
 
   function hideModal() {

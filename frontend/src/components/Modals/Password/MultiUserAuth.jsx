@@ -9,6 +9,9 @@ import RecoveryCodeModal from "@/components/Modals/DisplayRecoveryCodeModal";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 
+import SocialProviders from "./SocialProviders";
+
+
 const RecoveryForm = ({ onSubmit, setShowRecoveryForm }) => {
   const [username, setUsername] = useState("");
   const [recoveryCodeInputs, setRecoveryCodeInputs] = useState(
@@ -298,6 +301,12 @@ export default function MultiUserAuth() {
               </p>
             </div>
           </div>
+          <SocialProviders
+            setError={setError}
+            setLoading={setLoading}
+            setUser={setUser}
+            setToken={setToken}
+          />
           <div className="w-full px-4 md:px-12">
             <div className="w-full flex flex-col gap-y-4">
               <div className="w-screen md:w-full md:px-0 px-6">

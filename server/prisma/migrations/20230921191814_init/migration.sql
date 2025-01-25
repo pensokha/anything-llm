@@ -44,7 +44,7 @@ CREATE TABLE "system_settings" (
 CREATE TABLE "users" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "username" TEXT,
-    "password" TEXT NOT NULL,
+    "password" TEXT,
     "role" TEXT NOT NULL DEFAULT 'default',
     "suspended" INTEGER NOT NULL DEFAULT 0,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

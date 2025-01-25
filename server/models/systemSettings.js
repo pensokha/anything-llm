@@ -40,6 +40,8 @@ const SystemSettings = {
     "text_splitter_chunk_overlap",
     "agent_search_provider",
     "default_agent_skills",
+    "users_can_login_with_google",
+    "allowed_domain",
     "agent_sql_connections",
     "custom_app_name",
 
@@ -259,6 +261,15 @@ const SystemSettings = {
       AgentSearXNGApiUrl: process.env.AGENT_SEARXNG_API_URL || null,
       AgentTavilyApiKey: !!process.env.AGENT_TAVILY_API_KEY || null,
 
+       // --------------------------------------------------------
+      // Social Providers
+      // --------------------------------------------------------
+      GoogleAuthClientId:
+        (await this.get({ label: "users_can_login_with_google" }))?.value ===
+        "true"
+          ? process.env.GOOGLE_AUTH_CLIENT_ID
+          : null,
+      
       // --------------------------------------------------------
       // Compliance Settings
       // --------------------------------------------------------

@@ -13,7 +13,7 @@ const { EventLogs } = require("./eventLogs");
  */
 
 const User = {
-  usernameRegex: new RegExp(/^[a-z0-9_-]+$/),
+  usernameRegex: new RegExp(/^[a-z0-9_.-]+$/),
   writable: [
     // Used for generic updates so we can validate keys in request body
     "username",
@@ -107,6 +107,23 @@ const User = {
       return { user: null, error: error.message };
     }
   },
+  // social
+  createWithSocialProvider: async function ({ username }) {
+    try {
+      const user = await prisma.users.create({
+        data: {
+          username,
+          use_social_provider: true,
+        },
+      });
+      return { user, error: null };
+    } catch (error) {
+      console.error("FAILED TO CREATE USER.", error.message);
+      return { user: null, error: error.message };
+    }
+  },
+
+
   // Log the changes to a user object, but omit sensitive fields
   // that are not meant to be logged.
   loggedChanges: function (updates, prev = {}) {
